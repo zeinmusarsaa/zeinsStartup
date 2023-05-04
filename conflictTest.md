@@ -9,3 +9,5 @@ Edit #2 to this repo!!!!
 third edit!!
 
 I am not getting a merge error?! WHY?
+
+I got it, and resolved it.
