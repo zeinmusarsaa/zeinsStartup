@@ -21,9 +21,17 @@ For this application, I would like to create different features in order to make
 4. **Messaging Board and adding friends (as well as suggested friends)**
 5. **Nearest Middle-Eastern Market Locater (Google Maps)**
 
-**To see how this application would look like, here is the link [Profile Page.pdf](https://github.com/zeinmusarsaa/zeinsStartup/files/11410123/Profile.Page.pdf)**
+**Here are a few depictions or mock-up drawings of what the page will function and look like:**
+
+<img width="500" alt="Mock up of home page" src="https://user-images.githubusercontent.com/118689776/236571511-129dccbc-cc89-49c0-8274-96543b18afef.png">
+<img width="500" alt="Mock up of profile, recipe navigator, my recipes page and ME markets" src="https://user-images.githubusercontent.com/118689776/236571562-479b5968-ea3b-4a06-a17f-bbb0679bebf2.png">
+<img width="500" alt="Mock up of messaging board" src="https://user-images.githubusercontent.com/118689776/236571668-3f77fee5-9bd8-4185-8445-b69db7b88112.png">
 
 
+**Technologies that will be used:**
+1. **Authentication:** This part of the app will be used in order to access the application features. You will have a sign up page on the homepage wich will take you to a confirmation page. You will also have a login page as well, you can log in through google or facebook.
+2. **Database Data:** This application will display a rendering of Middle-Eastern dishes stored in the database. This database will keep uploading based on the posts. Users can search for recipes based on name, dish type, and region of the dish. You are also able to favorite recipes, which will be displayed on your profile page.
+3. **WebSocket Data:** This application will provide real-time updates of posts on the Recipe Navigator page, real time updates of your own posts on the 'My Recipe's' page, as well as provide real-time updates on Middle-Eastern Markets near the user's location based on the ZIP code which can be edited through the profile page.
 
 
 
