@@ -17,9 +17,9 @@ For this application, I would like to create different features in order to make
 
 1. **Profile Page with posted recipes by the user, ability to edit old posts.**
 2. **Page that allows to look through posts as though it is a newsfeed**
-3. **Adding a page that filters posts based on dish name**
-4. **Messaging Board**
-5. **Nearest Middle-Eastern Market Locater**
+3. **Adding a page that filters posts based on dish name, region, and type**
+4. **Messaging Board and adding friends (as well as suggested friends)**
+5. **Nearest Middle-Eastern Market Locater (Google Maps)**
 
 **To see how this application would look like, here is the link [Profile Page.pdf](https://github.com/zeinmusarsaa/zeinsStartup/files/11410123/Profile.Page.pdf)**
 
