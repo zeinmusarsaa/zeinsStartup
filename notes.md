@@ -8,3 +8,5 @@
 *I learned how to change fonts, the way text looks and embedding links as well!*
 
 Here is a link to my [README File](https://github.com/zeinmusarsaa/zeinsStartup/blob/main/README.md)
+
+ Today, I was able to sketch out an application idea.
