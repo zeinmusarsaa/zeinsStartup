@@ -33,6 +33,11 @@ For this application, I would like to create different features in order to make
 2. **Database Data:** This application will display a rendering of Middle-Eastern dishes stored in the database. This database will keep uploading based on the posts. Users can search for recipes based on name, dish type, and region of the dish. You are also able to favorite recipes, which will be displayed on your profile page.
 3. **WebSocket Data:** This application will provide real-time updates of posts on the Recipe Navigator page, real time updates of your own posts on the 'My Recipe's' page, as well as provide real-time updates on Middle-Eastern Markets near the user's location based on the ZIP code which can be edited through the profile page.
 
+**HTML, JS, and CSS:**
+1. I will use HTML in creating the structure and format of my webpage, defining the structure in headers, footers, and content areas.
+2. I will use CSS in the design of my website, I plan to have different images for foods, people will be able to post and input their own images, and all that will be styled through CSS.
+3. I will use Java in the interactive aspect of my site, because this is like facebook/ME recipes, I will use java in the posting, filtering, commenting and messaging aspect of my application. I will also use java for my user log-in/signup part.
+
 
 
 
