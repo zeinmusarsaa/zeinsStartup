@@ -10,3 +10,5 @@
 Here is a link to my [README File](https://github.com/zeinmusarsaa/zeinsStartup/blob/main/README.md)
 
  Today, I was able to sketch out an application idea.
+
+Today, I forked the HTML structure provided for us in the assignment, I change table values, added links and images. Although I had done this before, it was  great refresher. Some things I need to remember is table elements, as well as linking both actual websites and images.
