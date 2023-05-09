@@ -1,31 +1,50 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Favoriteed</title>
+  <title>Favorited</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-    }
-    h1 {
-      text-align: center;
-    }
-    ul {
-      list-style-type: none;
+      font-family: times;
+      margin: 0;
       padding: 0;
     }
-    li {
-      margin-bottom: 10px;
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
     }
-    a {
+    nav {
+      display: flex;
+      justify-content: space-between;
+    }
+    li{
+        list-style-type: none;
+        padding: 0.25em 0;
+    }
+
+    nav a {
+      color: #fff;
       text-decoration: none;
-      color: #333;
+      padding: 5px;
     }
-    a:hover {
-      text-decoration: underline;
+    main {
+      margin: 20px;
     }
   </style>
 </head>
 <body>
+    <header>
+        <nav>
+          <ul>
+            <li><a href="./recipenav.html">Recipe Navigator</a></li>
+            <li><a href="./MEmarket.html">Middle Eastern Markets</a></li>
+            <li><a href="./profile.html">Profile</a></li>
+          </ul>
+          <ul>
+            <li><a href="./index.html">Logout</a></li>
+          </ul>
+        </nav>
+      </header>
   <h1>Favorites</h1>
   <ul>
     <li><a href="https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco,c_fill,g_center,w_730,h_913/k%2Farchive%2F28af3f00835c1564f1806eddff49a90a0f22dc79">Hummus</a></li>
