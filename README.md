@@ -48,4 +48,6 @@ For this application, I would like to create different features in order to make
   3. The profile Page contains a favorites tab of favorited recipes, as well as a place to post recipes. I plan to include more to this tab.
   4. I included a recipe navigator page, which looks exactly like the favorites site, but will be completely different once I add more CSS and JS.
   5. I also added a ME markets near you. Google maps has an embedded code and since I am in Utah, that will show, but in the future I hope to make it according to the zipcode the user provides.
-** I look forward to the websites we are making!**
+
+
+**I look forward to the websites we are making!**
