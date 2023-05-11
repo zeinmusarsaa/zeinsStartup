@@ -40,6 +40,12 @@ For this application, I would like to create different features in order to make
 
 
 
-
-
-For my HTML startup deliverable, I added a lot to my webpage.
+## Startup HTML:
+  For my HTML startup deliverable, I added a lot to my webpage.
+  I began by adding elements of design to my webpage. including a background picture to the login and signup page. I made the front page the login page, but it will look way better once I advance more in HTML, CSS and Java. Both my name and Github page were linked to my index file. I added all the pages I want to include, since I overcomplicated some of the websites features, I simply don't have the skills yet to create the website fully as I wanted it to be. I had to reduce a few pages and perhaps combine some pages together. 
+  1. I created the index html file which includes my login page and links to my sign up page
+  2. Once you click log in or sign up, you are then taken to the profile page.
+  3. The profile Page contains a favorites tab of favorited recipes, as well as a place to post recipes. I plan to include more to this tab.
+  4. I included a recipe navigator page, which looks exactly like the favorites site, but will be completely different once I add more CSS and JS.
+  5. I also added a ME markets near you. Google maps has an embedded code and since I am in Utah, that will show, but in the future I hope to make it according to the zipcode the user provides.
+** I look forward to the websites we are making!**
