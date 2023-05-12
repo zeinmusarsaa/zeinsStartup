@@ -51,3 +51,5 @@ For this application, I would like to create different features in order to make
 
 
 **I look forward to the websites we are making!**
+
+ For the CSS assignments. I followed the assignments as much as I could, referring to the links when problems arose. I enjoyed the practice we had and look forward to implementing some of these parts to my own website in the future.
