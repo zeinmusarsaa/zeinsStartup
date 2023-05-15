@@ -22,3 +22,10 @@ For the CSS startup assignment, I created multiple CSS pages as every one of the
 For my profile page, I added profile sections within my css code, using what I learned in class as well as what I learned through W3schools and other resources. I also looked for different ideas on CodePen and learned how to implement them.
 
  For my other pages, I created their own css page, I have modified it accordingly and plan on changing some CSS elements in all my css pages to include updates to code, differences for each page, and other parts of CSS
+ 
+ Few things I need to remember:
+ 1. How to make sure the window is responsive to resizing (text-align).
+ 2. Make sure how to make the footer stay down rather than float up.
+ 3. Make sure that the way I format my HTML code is the way I want it to look (Had a few formatting issues because when doing the HTML startup assignment I didnt add <main> </main> to my code
+ 4. Different design elements.
+ 
