@@ -1,6 +1,55 @@
-body {
+
+* {
+    font-family: sans-serif;
+    box-sizing: border-box;
+  }
+  
+  html {
+    height: 100%;
+  }
+  
+  body {
     margin: 0;
-    color: white;
+    display: flex;
     background-image: url('https://shef.com/homemade-food/wp-content/uploads/lebanese-mezze-middle-eastern-food-scaled-e1662414361114.jpeg');
-    font: 600 16px/18px times;
-}
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  header {
+    flex: 0 50px;
+    font-size: 20px;
+    background: hsl(223, 57%, 38%);
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+  }
+  
+  main {
+    flex: 1;
+    font-size: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  div {
+    padding: 0 0.5em;
+  }
+  
+  footer {
+    flex: 0 50px;
+    background: hsl(180, 30%, 15%);
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  a {
+    color: white;
+  }
+  
