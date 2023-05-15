@@ -20,3 +20,5 @@ For today, I did the assignments due on Thursday. I started by forking the codep
 For the CSS startup assignment, I created multiple CSS pages as every one of the pages on my website will be changed and altered according to what it is.
 
 For my profile page, I added profile sections within my css code, using what I learned in class as well as what I learned through W3schools and other resources. I also looked for different ideas on CodePen and learned how to implement them.
+
+ For my other pages, I created their own css page, I have modified it accordingly and plan on changing some CSS elements in all my css pages to include updates to code, differences for each page, and other parts of CSS
