@@ -19,7 +19,7 @@
   header {
     flex: 0 50px;
     font-size: 20px;
-    background: hsl(223, 57%, 38%);
+    background: hsl(15, 97%, 27%);
     color: white;
     display: flex;
     flex-direction: row;
@@ -38,11 +38,12 @@
   
   div {
     padding: 0 0.5em;
+    color: white;
   }
   
   footer {
     flex: 0 50px;
-    background: hsl(180, 30%, 15%);
+    background: hsl(15, 97%, 27%);
     color: white;
     display: flex;
     flex-direction: row;
@@ -50,6 +51,30 @@
     align-items: center;
   }
   a {
-    color: white;
+    color: black;
+    text-decoration: none;
   }
-  
+  h1{
+    align-items:flex-start;
+    color:white;
+  }
+  label{
+    color:white;
+    align-items: center;
+    font-size: 20px;
+  }
+  .button {
+
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+
+  }
+
+ 
+ 

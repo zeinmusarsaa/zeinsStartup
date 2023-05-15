@@ -1,41 +1,29 @@
 <!DOCTYPE html>
 <html>
-    <style>
-        body {
-            margin: 0;
-            color: white;
-            background-image: url('https://www.sbs.com.au/food/sites/sbs.com.au.food/files/styles/full/public/gettyimages-849749656.jpg?itok=fhGahyvt&mtime=1540337930');
-            font: 600 16px/18px times;
-        }
-
-    </style>
     <head>
+        <link rel="stylesheet" href="style.css">
         <title>Sign Up</title>
     </head>
     <body>
-      <h2>Sign Up</h2>
-  </body>
-  <ul>
-          <li> 
-            <label for="text">Email: </label>
-            <input type="text" id="text" name="varText" placeholder="Enter username Here" required pattern="[Aa].*" />
-      </li>
-                    <li> 
-            <label for="text">Password: </label>
-            <input type="text" id="text" name="varText" placeholder="Enter password Here" required pattern="[Aa].*" />
-      </li>
-     <li> 
-            <label for="text">Repeat password: </label>
-            <input type="text" id="text" name="varText" placeholder="Repeat Password Here" required pattern="[Aa].*" />
-      </li>
-          <button type="submit"><a href = './profile.html' >Sign Up</a></button>
-        </ul>
+        <header>
+          <div>home</a></div>
+          <div>about</div>
+          <div>profile</div>
+      
+        </header>
+        <main>
+          <div>Sign Up</div>
+          <label for="text">Email </label>
+          <input type="text" id="text" name="varText" placeholder="Email" required pattern="[Aa].*" />
+          <label for="text">Username </label>
+          <input type="text" id="text" name="varText" placeholder="UserName" required pattern="[Aa].*" />
+          <label for="password">Password: </label>
+          <input type="password" id="password" name="varPassword" />
 
-    <footer><a href= "https://github.com/zeinmusarsaa/zeinsStartup" target = "_blank">Github</a></footer>
-
-
-
-
-
-
-</html>
+          <button class="button"><a href= "./profile.html">Sign Up</button></a>
+      
+          
+        </main>
+        <footer><a href="https://github.com/zeinmusarsaa/zeinsStartup">GitHub</a></footer>
+      </body>
+      </html>
