@@ -18,3 +18,5 @@ Today, I learned how to code a website from scratch. Although I have done this p
 For today, I did the assignments due on Thursday. I started by forking the codepens and making edits. There were some things I didn't know how to do and looked at the example forks in all 3 assignments. I also fixed things according to what I would perfer on my webpage. I am excited to implement these CSS structures into our startup websites next week.
 
 For the CSS startup assignment, I created multiple CSS pages as every one of the pages on my website will be changed and altered according to what it is.
+
+For my profile page, I added profile sections within my css code, using what I learned in class as well as what I learned through W3schools and other resources. I also looked for different ideas on CodePen and learned how to implement them.
