@@ -53,3 +53,5 @@ For this application, I would like to create different features in order to make
 **I look forward to the websites we are making!**
 
  For the CSS assignments. I followed the assignments as much as I could, referring to the links when problems arose. I enjoyed the practice we had and look forward to implementing some of these parts to my own website in the future.
+
+For the CSS Startup assignment, I have added padding and format for my pages, I made sure that all my pages had a similar format and mostly similar css files with minor changes between each. I have also added different looking buttons as I like the oval shape more, I also implemented some of the styles we used in our CSS homework, such as the navigation bar and how that looks. I implemented the resizing part as well that I learned from that assignment.
