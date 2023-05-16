@@ -29,3 +29,5 @@ For my profile page, I added profile sections within my css code, using what I l
  3. Make sure that the way I format my HTML code is the way I want it to look (Had a few formatting issues because when doing the HTML startup assignment I didnt add <main> </main> to my code
  4. Different design elements.
  
+
+ For the assignment due tomorrow for Java, I attempted to code this on my own, with a few pointers from the github page and the deepdive. When I finished, I looked at the possible solution and condensed some of my code. For example, I had to const functions and then did a console.log(testAll(input,test)) when I could've calculated the result with one const and called it as the possible solution offered. 
