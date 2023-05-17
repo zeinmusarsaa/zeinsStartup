@@ -31,3 +31,4 @@ For my profile page, I added profile sections within my css code, using what I l
  
 
  For the assignment due tomorrow for Java, I attempted to code this on my own, with a few pointers from the github page and the deepdive. When I finished, I looked at the possible solution and condensed some of my code. For example, I had to const functions and then did a console.log(testAll(input,test)) when I could've calculated the result with one const and called it as the possible solution offered. 
+I implemented object classes with constructors and connect methods

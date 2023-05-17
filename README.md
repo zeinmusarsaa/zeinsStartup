@@ -57,3 +57,4 @@ For this application, I would like to create different features in order to make
 For the CSS Startup assignment, I have added padding and format for my pages, I made sure that all my pages had a similar format and mostly similar css files with minor changes between each. I have also added different looking buttons as I like the oval shape more, I also implemented some of the styles we used in our CSS homework, such as the navigation bar and how that looks. I implemented the resizing part as well that I learned from that assignment.
 
  For my Java array assignment, I utilized the information we learned as well as the example solution, and the deep dive reading in order to create the codepen for the requirements.
+I implemented object classes with constructors and connect methods
