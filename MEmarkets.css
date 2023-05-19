@@ -66,8 +66,8 @@
     font-size: 20px;
   }
   .button {
-
     color: white;
+    background-color: hsl(15, 97%, 27%);
     border: none;
     border-radius: 25px;
     padding: 10px 20px;
@@ -75,5 +75,5 @@
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    cursor: pointer;
+  
   }

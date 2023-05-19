@@ -2,6 +2,7 @@
 <html>
     <head>
         <link rel="stylesheet" href="style.css">
+        <script src="login.js"></script>
         <title>Zein Mosarsaa</title>
     </head>
     <body>
@@ -17,12 +18,11 @@
             <h1>Welcome to the Middle Eastern Recipe Hub!</h1>
           <div>Login</div>
           <label for="text">Username/Email: </label>
-          <input type="text" id="text" name="varText" placeholder="Zein Mosarsaa" required pattern="[Aa].*" />
+          <input type="text" id="name" placeholder="Your name here" />
           <label for="password">Password: </label>
           <input type="password" id="password" name="varPassword" />
-          <button class="button"><a href= "./profile.html">Login</button></a>
-
-          <button class="button"><a href= "./signup.html">Sign Up</button></a>
+          <button class="button" onclick="login()">Login</button>
+          <button class="button" onclick="signup()">Sign Up</button>
       
           
         </main>
