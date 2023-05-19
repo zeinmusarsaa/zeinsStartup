@@ -51,7 +51,7 @@
     align-items: center;
   }
   a {
-    color: black;
+    color: white;
     text-decoration: none;
   }
   h1{
@@ -74,3 +74,6 @@
     display: inline-block;
     font-size: 16px;
   }
+
+
+  
