@@ -2,15 +2,15 @@
 <html>
     <head>
         <link rel="stylesheet" href="style.css">
-        <script src="login.js"></script>
         <title>Zein Mosarsaa</title>
     </head>
     <body>
+        <script src="login.js"></script>
         <header>
-            <div><a href="./recipenav.html">Recipe Navigator</a></div>
-            <div><a href="./MEmarket.html">Middle Eastern Markets</a></div>
+            <div><a href="#">Recipe Navigator</a></div>
+            <div><a href="#">Middle Eastern Markets</a></div>
             <div><a href="#">Profile</a></div>
-            <div class="logout"><a href="./index.html">Log Out</a></div>
+            <div class="logout"><a href="#" id = "logoutLink" onclick="logout()">Log Out</a></div>
       
         </header>
 
@@ -18,21 +18,15 @@
             <h1>Welcome to the Middle Eastern Recipe Hub!</h1>
           <div>Login</div>
           <label for="text">Username/Email: </label>
-          <input type="text" id="name" placeholder="Your name here" />
+          <input type="text" id="userName" placeholder="Your username here" />
           <label for="password">Password: </label>
           <input type="password" id="password" name="varPassword" />
-          <button class="button" onclick="login()">Login</button>
-          <button class="button" onclick="signup()">Sign Up</button>
+          <button class="button" id="loginButton">Login</button>
+          <button class="button" id="signupButton">Sign Up</button>
       
           
         </main>
         <footer><a href="https://github.com/zeinmusarsaa/zeinsStartup">GitHub</a></footer>
       </body>
         
-
-
-
-
-
-
 </html>
