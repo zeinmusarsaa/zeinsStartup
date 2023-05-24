@@ -116,10 +116,10 @@ function removeRecipeFromFavorites(id) {
 
 //let ws = new WebSocket('ws://websocket-url');
 
- ws.onmessage = event => {
-    let data = JSON.parse(event.data);  
-    updateNewsfeed(data);
- };
+//  ws.onmessage = event => {
+//     let data = JSON.parse(event.data);  
+//     updateNewsfeed(data);
+//  };
 
 
 
