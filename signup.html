@@ -2,12 +2,10 @@
 <html>
     <head>
         <link rel="stylesheet" href="style.css">
-        
-        
+        <script src="login.js"></script>
         <title>Sign Up</title>
     </head>
     <body>
-        <script src="login.js"></script>
         <header>
             <div><a href="#">Recipe Navigator</a></div>
             <div><a href="./MEmarket.html">Middle Eastern Markets</a></div>
@@ -16,14 +14,17 @@
         </header>
         <main>
           <div>Sign Up</div>
-          <label for="email">Email </label>
-          <input type="text" id="email" name="email" placeholder="Email" required pattern="[Aa].*" />
-          <label for="userNameSignup">Username </label>
-          <input type="text" id="userNameSignup" name="userNameSignup" placeholder="UserName" required pattern="[Aa].*" />
-          <label for="password">Password: </label>
-          <input type="password" id="passwordSignup" name="passwordSignup" />
-          <button class="button" id="signupButton" onclick="completeSignup()">Complete Sign Up</button>
+          <form id="signupForm">
+              <label for="email">Email </label>
+              <input type="text" id="email" name="email" placeholder="Email"/>
+              <label for="userNameSignup">Username </label>
+              <input type="text" id="userNameSignup" name="userNameSignup" placeholder="UserName"/>
+              <label for="password">Password: </label>
+              <input type="password" id="passwordSignup" name="passwordSignup" />
+              <button class="button" id="signupButton" onclick="signup()">Complete Sign Up</button>
+          </form>
         </main>
-        <footer><a href="https://github.com/zeinmusarsaa/zeinsStartup">GitHub</a></footer>
+        <footer><a href="https://github.com/zeinmusarsaa/zeinsStartup">GitHub</a>
+        </footer>
     </body>
 </html>

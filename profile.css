@@ -15,6 +15,18 @@ body {
   height: 100%;
 }
 
+.empty-star {
+  /* Adjust based on your preferences */
+  color: black;
+  cursor: pointer;
+}
+
+.filled-star {
+  /* Adjust based on your preferences */
+  color: gold;
+  cursor: pointer;
+}
+
 header {
   flex: 0 50px;
   font-size: 20px;
