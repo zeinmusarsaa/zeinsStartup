@@ -34,6 +34,7 @@ window.onload = function() {
             instructions: instructions,
 
         };
+        database.recipes.push(data);
         
     
         updateNewsfeed(data);  // Update the newsfeed directly
@@ -113,12 +114,12 @@ function removeRecipeFromFavorites(id) {
     });
 }
 
+//let ws = new WebSocket('ws://websocket-url');
 
-// Remember to change your WebSocket message handling code as well:
-// ws.onmessage = event => {
-//     let data = JSON.parse(event.data);  // Assuming server sends JSON data
-//     updateNewsfeed(data);
-// };
+ ws.onmessage = event => {
+    let data = JSON.parse(event.data);  
+    updateNewsfeed(data);
+ };
 
 
 
@@ -136,6 +137,7 @@ function addRecipeToFavorites(data) {
 
     recipeH3.textContent = data.recipeName;
     recipeP.textContent = `Ingredients: ${data.ingredients} - Instructions: ${data.instructions}`;
+    database.recipes.push(data);
 
     recipeDiv.appendChild(recipeH3);
     recipeDiv.appendChild(recipeP);
