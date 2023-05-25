@@ -8,10 +8,41 @@ function login() {
 
 // Function to handle user sign up
 function signup() {
+
     window.location.href = "./signup.html";
+
+
 }
 
-// Function to check if user is logged in
+// const  userNameSignup = document.querySelector('#userNameSignup');
+// const  passwordSignup = document.querySelector('#passwordSignup');
+
+// const form = document.querySelector('#signupForm');
+
+// const isPasswordSecure = (password) =>{
+//     const rules = new RegExp("^(?=.{8,})(?=.*[0-9])");
+//     return rules.test(password);
+// }
+
+// function isRequired(value){
+//     if (value === ''){
+//         return false;
+//     } else {
+//         return true;
+//     }
+//}
+
+// const isBetween(length, min, max){
+//     if (length < min || length > max){
+//         return false;
+//     }
+//     else{
+//         return true;
+//     }
+// }
+
+
+
 function checkLoggedIn(){
     const userName = localStorage.getItem('userName');
     const loggedIn = localStorage.getItem('loggedIn');
