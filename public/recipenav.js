@@ -54,8 +54,7 @@ displayRecipes();
 
 window.onload = function() {
     const recipeNames = Object.keys(database.recipes);
-    const tabContainer = document.getElementById('tabContainer'); // Assuming you have a div for tabs in HTML
-
+    const tabContainer = document.getElementById('tabContainer'); 
     recipeNames.forEach((recipeName) => {
         let tab = document.createElement('div');
         tab.textContent = recipeName;
@@ -70,7 +69,7 @@ window.onload = function() {
 
 function displayRecipes(recipeName) {
     const recipes = database.recipes[recipeName];
-    const recipeContainer = document.getElementById('recipeContainer'); // Assuming you have a div for displaying recipes in HTML
+    const recipeContainer = document.getElementById('recipeContainer'); 
 
     recipeContainer.innerHTML = ''; // Clear the container
 

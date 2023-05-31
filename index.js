@@ -1,44 +1,40 @@
 const express = require('express');
 const app = express();
-const cookieParser = require('cookie-parser');
-app.use(cookieParser());
-const port = process.env.PORT || 8080;
-const session = require('express-session');
 
-app.use(session({
-  secret: '1312',  // Replace this with your own secret key
-  resave: false,
-  saveUninitialized: false,
-  cookie: { maxAge: 60000 }  // Configure this to suit your needs
-}));
+// The service port. In production the front-end code is statically hosted by the service on the same port.
+const port = process.argv.length > 2 ? process.argv[2] : 3000;
 
+// JSON body parsing using built-in middleware
+app.use(express.json());
 
-// Express middleware for serving static files
+// Serve up the front-end static content hosting
 app.use(express.static('public'));
 
-app.post('/cookie/userName/:username', (req, res) => {
-    req.session.userName = req.params.username;
-    res.json({ status: 'Logged in' });
+// Router for service endpoints
+var apiRouter = express.Router();
+app.use(`/api`, apiRouter);
+
+// GetScores
+apiRouter.get('/cookies', (_req, res) => {
+  res.send(cookies);
 });
 
-app.post('/logout', (req, res) => {
-    req.session.destroy(err => {
-        if (err) {
-            res.status(500).json({ status: 'Error' });
-        } else {
-            res.json({ status: 'Logged out' });
-        }
-    });
+// SubmitScore
+// apiRouter.post('/', (req, res) => {
+//   scores = updateScores(req.body, scores);
+//   res.send(scores);
+// });
+
+// Return the application's default page if the path is unknown
+app.use((_req, res) => {
+  res.sendFile('index.html', { root: 'public' });
 });
 
-app.get('/cookie', (req, res) => {
-    let userName = req.session.userName;
-    if (userName) {
-        res.json({ status: 'Logged in', userName: userName });
-    } else {
-        res.json({ status: 'Not logged in' });
-    }
+app.listen(port, () => {
+  console.log(`Listening on port ${port}`);
 });
 
-app.listen(port, () => console.log(`App listening on port ${port}`));
 
+
+// updateScores considers a new score for inclusion in the high scores.
+// The high scores are saved in memory and disappear whenever the service is restarted.
