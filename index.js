@@ -24,6 +24,30 @@ apiRouter.get('/cookies', (_req, res) => {
 
 //sign up 
 apiRouter.post('/signup', (req, res) => {
+    //The commented out code below is also checking for email, whereas the uncommented is just for the username
+    //const { username, email } = req.body;
+    // let usernameExists = false;
+    //let emailExists = false;
+    // for (let user in users){
+        //if (users(user).username === username){
+            //usernameExists = true;
+
+     //   }
+     // if (users(user).email === email){
+        // emailExists = true;
+
+     //}
+    //}
+    // if (usernameExists){
+    //     res.status(400).send({ error: 'User already exists' });
+    // }
+    // else if (emailExists){
+    //     res.status(400).send({error: 'Email already exists' });
+    // }
+    // else{
+    //     users[username] = { loggedIn: true, email: email };  // Set the loggedIn state to true when they signup.
+    //     res.send({ message: 'User created successfully' });
+    // }
     const { username } = req.body;
     if (users[username]) {
       res.status(400).send({ error: 'User already exists' });
@@ -32,6 +56,8 @@ apiRouter.post('/signup', (req, res) => {
       res.send({ message: 'User created successfully' });
     }
   });
+
+
 
 
 // Return the application's default page if the path is unknown

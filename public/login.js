@@ -21,16 +21,19 @@ function checkLoggedIn(){
     }
 }
 //Function to complete sign up
-// Function to complete sign up
 async function completeSignup() {
     const nameEl = document.querySelector("#userNameSignup");
+    //const emailEl = document.querySelector("#emailSignup");
+    //const email = emailEl.value;
     const username = nameEl.value;
+
   
     const response = await fetch('/api/signup', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
+      //body: JSON.stringify({username, email }),
       body: JSON.stringify({ username }),
     });
   
@@ -73,9 +76,6 @@ window.onload = function() {
     if (document.getElementById('signupButton')) {
         document.getElementById('signupButton').addEventListener('click', completeSignup);
     }
-    if (document.getElementById('completeSignupButton')) {
-        document.getElementById('completeSignupButton').addEventListener('click', completeSignup);
-      }
       
 
 }
