@@ -21,12 +21,34 @@ function checkLoggedIn(){
     }
 }
 //Function to complete sign up
-function completeSignup() {
+// Function to complete sign up
+async function completeSignup() {
     const nameEl = document.querySelector("#userNameSignup");
-    localStorage.setItem("userName", nameEl.value);
+    const username = nameEl.value;
+  
+    const response = await fetch('/api/signup', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ username }),
+    });
+  
+    const result = await response.json();
+  
+    if (response.status === 400) {
+      // Handle error (e.g. user already exists)
+      alert(result.error);
+      return;
+    }
+  
+    // If successful, store the username and logged-in state in local storage
+    localStorage.setItem("userName", username);
     localStorage.setItem("loggedIn", "true");
+  
     window.location.href = "./profile.html";
   }
+  
 
 
 // Function to handle user logout
@@ -51,5 +73,9 @@ window.onload = function() {
     if (document.getElementById('signupButton')) {
         document.getElementById('signupButton').addEventListener('click', completeSignup);
     }
+    if (document.getElementById('completeSignupButton')) {
+        document.getElementById('completeSignupButton').addEventListener('click', completeSignup);
+      }
+      
 
 }
