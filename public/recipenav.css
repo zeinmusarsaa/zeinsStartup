@@ -27,6 +27,26 @@ header {
   align-items: center;
 }
 
+.quote-box {
+  margin-top: 1em;
+  padding: 0.5em;
+  border-radius: 5px;
+}
+
+.quote {
+  font-style: italic;
+  color: black;
+}
+
+.author {
+  font-weight: italic;
+  text-align: center;
+}
+
+.author::before {
+  content: " - ";
+}
+
 main {
   flex: 1;
   font-size: 30px;
