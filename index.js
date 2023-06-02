@@ -69,7 +69,6 @@ app.listen(port, () => {
 });
 
 
-
-
 // updateScores considers a new score for inclusion in the high scores.
 // The high scores are saved in memory and disappear whenever the service is restarted.
+
