@@ -2,6 +2,8 @@ const { MongoClient } = require('mongodb');
 const config = require('./dbConfig.json');
 const url = `mongodb+srv://zeinmus:89Ester98!@cluster0.srdq7br.mongodb.net/`;
 
+
+
 // async function main() {
 //   // Connect to the database cluster
 //   const url = `mongodb+srv://zeinmus:<89Ester98!>@cluster0.srdq7br.mongodb.net/`;

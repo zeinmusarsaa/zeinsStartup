@@ -184,6 +184,7 @@ window.onload = function() {
   
   
   function logout() {
+    localStorage.removeItem('userName');
     window.location.href = "./index.html";
   }
   
