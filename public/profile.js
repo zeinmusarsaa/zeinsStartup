@@ -2,35 +2,20 @@ async function callJava(){
   let recipeName = document.getElementById('recipe-name').value;
   let ingredients = document.getElementById('ingredients').value;
   let instructions = document.getElementById('instructions').value;
-  // const a = await fetch("/api/recipes");
-  // const ab = await a.json();
   const b = await fetch("/api/recipes", {method: 'post', headers: { 'Content-type': 'application/json; charset=UTF-8',},body: JSON.stringify({ 'recipe-name': recipeName, 'ingredients': ingredients, 'instructions': instructions})});
   const bc = await b.json();
-
-
-
-  // const c = await fetch("/api/recipes/647e4c4a878146bd59b640d0",{method: 'delete', headers: { 'Content-type': 'application/json; charset=UTF-8',},body: JSON.stringify({ name: 'Mlukhiye', servings: '3' })});
-  // const cs = await c.json();
 }
 
 async function deletePost(){
   let recipeName = document.getElementById('recipe-name').value;
   let ingredients = document.getElementById('ingredients').value;
   let instructions = document.getElementById('instructions').value;
-  let userName = document.getElementById('userName').value;
-  const a = await fetch("/api/recipes/:id", 
+  const a = await fetch("/api/recipes/647fa9860dfdedd406f2d9cf", 
   {method: 'delete', headers: { 'Content-type': 'application/json; charset=UTF-8',},
-  body: JSON.stringify({ 'userName': userName, 'recipe-name': recipeName, 'ingredients': ingredients, 'instructions': instructions})});
+  body: JSON.stringify({'recipe-name': recipeName, 'ingredients': ingredients, 'instructions': instructions})});
   const ab = await a.json();
 
 }
-
-
-
-
-
-
- 
 
 //const response = await fetch(endpoint, { method: 'post', body: JSON.stringify({ email: userName, password: password }),     headers: { 'Content-type': 'application/json; charset=UTF-8',}, });
 
@@ -162,7 +147,7 @@ window.onload = function() {
     star.textContent = '☆';
   
     let message = `New Recipe Posted by ${data.userName}: ${data.recipeName} - Ingredients: ${data.ingredients} - Instructions: ${data.instructions}`;
-    //fetch('api/recipes')
+
   
     star.addEventListener('click', function() {
       if (this.classList.contains('filled-star')) {
@@ -199,7 +184,6 @@ window.onload = function() {
   
   
   function logout() {
-    localStorage.removeItem('userName');
     window.location.href = "./index.html";
   }
   
