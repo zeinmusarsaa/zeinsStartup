@@ -1,13 +1,15 @@
 window.onload = function() {
+  //displaying a welcome, "your name" sign, but only the username.
     const username = localStorage.getItem('userName');
   
     if (username) {
       document.getElementById('userName').innerText = `Welcome, ${username}!`;
+      loadFavoriteRecipes();
     } else {
       window.location.href = "./index.html";
     }
   
-    loadFavoriteRecipes();
+    
   
     // Fetch and display user data
     fetchUserData(username)
