@@ -2,7 +2,7 @@
 <html>
   <head>
     <link rel="stylesheet" href="profile.css">
-    <script src="profile.js"></script>
+    <script defer src="profile.js"></script>
     <title>Zein Mosarsaa</title>
   </head>
   <body>
@@ -31,8 +31,10 @@
             <label for="file">Add pictures: </label>
             <input type="file" id="file" name="varFile" accept="image/*" multiple>
             <br>
-            <button class="button" id = "postButton" type="submit">Post</button>
+            <button class="button" id = "postButton" onclick = "callJava()" type="submit">Post</button>
+            
           </form>
+          <button class="button" onclick = "callJava()" type="submit">JavaScript Functions</button>
         </section>
       </div>
 
@@ -40,6 +42,7 @@
         <section class="newsfeed">
           <h2>Newsfeed</h2>
           <div id="newsfeedContainer"></div>
+          <button class="button" id = "deleteSelectedPosts" onclick = "deletePost()" type="submit">Delete Post</button>
         </section>
 
         <section class="favorite-recipes">

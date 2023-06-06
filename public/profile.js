@@ -1,3 +1,39 @@
+async function callJava(){
+  let recipeName = document.getElementById('recipe-name').value;
+  let ingredients = document.getElementById('ingredients').value;
+  let instructions = document.getElementById('instructions').value;
+  // const a = await fetch("/api/recipes");
+  // const ab = await a.json();
+  const b = await fetch("/api/recipes", {method: 'post', headers: { 'Content-type': 'application/json; charset=UTF-8',},body: JSON.stringify({ 'recipe-name': recipeName, 'ingredients': ingredients, 'instructions': instructions})});
+  const bc = await b.json();
+
+
+
+  // const c = await fetch("/api/recipes/647e4c4a878146bd59b640d0",{method: 'delete', headers: { 'Content-type': 'application/json; charset=UTF-8',},body: JSON.stringify({ name: 'Mlukhiye', servings: '3' })});
+  // const cs = await c.json();
+}
+
+async function deletePost(){
+  let recipeName = document.getElementById('recipe-name').value;
+  let ingredients = document.getElementById('ingredients').value;
+  let instructions = document.getElementById('instructions').value;
+  let userName = document.getElementById('userName').value;
+  const a = await fetch("/api/recipes/:id", 
+  {method: 'delete', headers: { 'Content-type': 'application/json; charset=UTF-8',},
+  body: JSON.stringify({ 'userName': userName, 'recipe-name': recipeName, 'ingredients': ingredients, 'instructions': instructions})});
+  const ab = await a.json();
+
+}
+
+
+
+
+
+
+ 
+
+//const response = await fetch(endpoint, { method: 'post', body: JSON.stringify({ email: userName, password: password }),     headers: { 'Content-type': 'application/json; charset=UTF-8',}, });
+
 window.onload = function() {
   //displaying a welcome, "your name" sign, but only the username.
     const username = localStorage.getItem('userName');
@@ -8,7 +44,6 @@ window.onload = function() {
     } else {
       window.location.href = "./index.html";
     }
-  
     
   
     // Fetch and display user data
@@ -37,6 +72,22 @@ window.onload = function() {
       // Update the newsfeed directly
       updateNewsfeed(data);
       document.getElementById('recipeForm').reset(); // Clear the form
+    });
+    fetch('/api/recipes')
+    .then(response => response.json())
+    .then(recipes => {
+        recipes.forEach(recipe => {
+            let data = {
+                userName: recipe.userName,
+                recipeName: recipe['recipe-name'],
+                ingredients: recipe.ingredients,
+                instructions: recipe.instructions,
+            };
+            updateNewsfeed(data);
+        });
+    })
+    .catch(error => {
+        console.error('Error fetching recipes:', error);
     });
   };
   
@@ -83,10 +134,11 @@ window.onload = function() {
         console.error('Error fetching favorite recipes:', error);
       });
   }
+
   
   function fetchFavoriteRecipes() {
     return new Promise((resolve, reject) => {
-      fetch(`/api/favorite-recipes/${username}`)
+      fetch(`/api/favorite-recipes/zeinmus`)
         .then((response) => response.json())
         .then((favoriteRecipes) => {
           resolve(favoriteRecipes);
@@ -101,11 +153,16 @@ window.onload = function() {
     let newsfeedContainer = document.getElementById('newsfeedContainer');
     let newsDiv = document.createElement('div');
     let star = document.createElement('span');
-  
+    let checkBox = document.createElement('input');
+
+
+    checkBox.type = 'checkbox';
+    checkBox.id = data._id; 
     star.classList.add('empty-star');
     star.textContent = '☆';
   
     let message = `New Recipe Posted by ${data.userName}: ${data.recipeName} - Ingredients: ${data.ingredients} - Instructions: ${data.instructions}`;
+    //fetch('api/recipes')
   
     star.addEventListener('click', function() {
       if (this.classList.contains('filled-star')) {
@@ -120,7 +177,8 @@ window.onload = function() {
         this.classList.add('filled-star');
       }
     });
-  
+
+    newsDiv.appendChild(checkBox);
     newsDiv.appendChild(star);
     newsDiv.appendChild(document.createTextNode(message));
     newsfeedContainer.prepend(newsDiv);
@@ -135,7 +193,10 @@ window.onload = function() {
         favoriteRecipesSection.removeChild(div);
       }
     });
+    
   }
+
+  
   
   function logout() {
     localStorage.removeItem('userName');
