@@ -1,72 +1,72 @@
-function login() {
-  const nameEl = document.querySelector("#userName");
-  localStorage.setItem("userName", nameEl.value);
-  localStorage.setItem("loggedIn", "true");
-  window.location.href = "./profile.html";
-}
-
-// Function to handle user sign up
-function signup() {
-  window.location.href = "./signup.html";
-}
-
-// Function to check if user is logged in
-function checkLoggedIn() {
+(async () => {
   const userName = localStorage.getItem('userName');
-  const loggedIn = localStorage.getItem('loggedIn');
-  if (userName && loggedIn === "true") {
-    window.location.href = "./profile.html";
+  if (userName) {
+    document.querySelector('#userName').textContent = userName;
+    setDisplay('loginControls', 'none');
+    setDisplay('playControls', 'block');
+  } else {
+    setDisplay('loginControls', 'block');
+    setDisplay('playControls', 'none');
   }
+})();
+
+async function loginUser() {
+  loginOrCreate(`/api/auth/login`);
 }
 
-// Function to complete sign up
-async function completeSignup() {
-  const nameEl = document.querySelector("#userNameSignup");
-  const username = nameEl.value;
+async function createUser() {
+  loginOrCreate(`/api/auth/create`);
+}
 
-  const response = await fetch('/api/signup', {
-    method: 'POST',
+async function loginOrCreate(endpoint) {
+  const userName = document.querySelector('#userName')?.value;
+  const password = document.querySelector('#userPassword')?.value;
+  const response = await fetch(endpoint, {
+    method: 'post',
+    body: JSON.stringify({ email: userName, password: password }),
     headers: {
-      'Content-Type': 'application/json',
+      'Content-type': 'application/json; charset=UTF-8',
     },
-    body: JSON.stringify({ username }),
   });
 
-  const result = await response.json();
-
-  if (response.status === 400) {
-    // Handle error (e.g. user already exists)
-    alert(result.error);
-    return;
+  if (response.ok) {
+    localStorage.setItem('userName', userName);
+    window.location.href = 'profile.html';
+  } else {
+    const body = await response.json();
+    const modalEl = document.querySelector('#msgModal');
+    modalEl.querySelector('.modal-body').textContent = `⚠ Error: ${body.msg}`;
+    const msgModal = new bootstrap.Modal(modalEl, {});
+    msgModal.show();
   }
-
-  // If successful, store the username and logged-in state in local storage
-  localStorage.setItem("userName", username);
-  localStorage.setItem("loggedIn", "true");
-
-  window.location.href = "./profile.html";
 }
 
-// Function to handle user logout
+function play() {
+  window.location.href = 'profile.html';
+}
+
 function logout() {
   localStorage.removeItem('userName');
-  localStorage.removeItem('loggedIn');
-  window.location.href = "./index.html";
+  fetch(`/api/auth/logout`, {
+    method: 'delete',
+  }).then(() => (window.location.href = '/'));
 }
 
-window.onload = function () {
-  // Add event listeners
-  checkLoggedIn();
-  if (document.getElementById('logoutLink')) {
-    document.getElementById('logoutLink').addEventListener('click', logout);
+async function getUser(email) {
+  // See if we have a user with the given email.
+  const response = await fetch(`/api/user/${email}`);
+  if (response.status === 200) {
+    return response.json();
   }
-  if (document.getElementById('loginButton')) {
-    document.getElementById('loginButton').addEventListener('click', login);
-  }
-  if (document.getElementById('signupButton')) {
-    document.getElementById('signupButton').addEventListener('click', signup);
-  }
-  if (document.getElementById('completeSignup')) {
-    document.getElementById('completeSignup').addEventListener('click', completeSignup);
+
+  return null;
+}
+
+function setDisplay(controlId, display) {
+  const playControlEl = document.querySelector(`#${controlId}`);
+  if (playControlEl) {
+    playControlEl.style.display = display;
   }
 }
+
+
