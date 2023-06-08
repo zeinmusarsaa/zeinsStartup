@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 const uuid = require('uuid');
 const config = require('./dbConfig.json');
 
-const url = `mongodb+srv://${config.userName}:${config.password}@${config.hostname}`;
+const url = `mongodb+srv://zeinmus:89Ester98!@cluster0.srdq7br.mongodb.net/`
 const client = new MongoClient(url);
 const db = client.db('recipeDB');
 const userCollection = db.collection('user');
@@ -40,8 +40,10 @@ async function createUser(email, password) {
   return user;
 }
 
+
 module.exports = {
   getUser,
   getUserByToken,
   createUser,
 };
+
