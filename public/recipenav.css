@@ -27,26 +27,6 @@ header {
   align-items: center;
 }
 
-.quote-box {
-  margin-top: 1em;
-  padding: 0.5em;
-  border-radius: 5px;
-}
-
-.quote {
-  font-style: italic;
-  color: black;
-}
-
-.author {
-  font-weight: italic;
-  text-align: center;
-}
-
-.author::before {
-  content: " - ";
-}
-
 main {
   flex: 1;
   font-size: 30px;
@@ -58,7 +38,7 @@ main {
 
 div {
   padding: 0 0.5em;
-  color: white;
+  color: black;
 }
 
 footer {
@@ -78,7 +58,7 @@ a {
 h1{
   align-items:flex-start;
   color:black;
-  text-align:left;
+  text-align:center;
 }
 label{
   color:white;
@@ -97,15 +77,3 @@ label{
   font-size: 16px;
 
 }
-
-.left-section {
-  flex: 0 0 50%;
-  padding: 20px;
-}
-
-.right-section {
-  flex: 0 0 50%;
-  padding: 20px;
-}
-
-

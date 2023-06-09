@@ -135,8 +135,9 @@ section.post-section button.button {
 
 section.newsfeed {
   background-color: white;
-  padding: 20px;
   margin-bottom: 20px;
+  max-height: 500px; /* Adjust the max-height as needed */
+  overflow-y: auto;
 }
 
 section.newsfeed h2 {
@@ -163,6 +164,9 @@ section.newsfeed p {
 section.favorite-recipes {
   background-color: white;
   padding: 20px;
+  margin-bottom: 20px;
+  max-height: 250px; /* Adjust the max-height as needed */
+  overflow-y: auto;
 }
 
 section.favorite-recipes h2 {
@@ -190,6 +194,34 @@ div {
   color: black;
 }
 
+.post {
+  background-color: white;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
 
+
+.username {
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.post-content {
+  margin-bottom: 15px;
+}
+
+.post-interactions {
+  display: flex;
+  justify-content: space-around;
+}
+
+.post-interactions button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #888;
+}
 
 

@@ -1,4 +1,48 @@
 <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Recipe Navigator</title>
+    <link rel="stylesheet" href="recipenav.css">
+
+  </head>
+  <body>
+    <header>
+      <div><a href="#">Recipe Navigator</a></div>
+      <div><a href="./MEmarket.html">Middle Eastern Markets</a></div>
+      <div><a href="./profile.html">Profile</a></div>
+      <div class="logout"><a href="./index.html">Log Out</a></div>
+    </header>
+
+    <main>
+    <div class="name">
+      <fieldset id="name-controls">
+        <legend>Search</legend>
+        <input id="my-name" type="text" />
+      </fieldset>
+    </div>
+
+    <fieldset id="chat-controls" disabled>
+      <legend>Chat</legend>
+      <input id="new-msg" type="text" />
+      <button onclick="sendMessage()">Send</button>
+    </fieldset>
+    <div id="chat-text"></div>
+  </body>
+</main>
+
+  <footer>
+    <a href="https://github.com/zeinmusarsaa/zeinsStartup">GitHub</a>
+    <button class="button"><a href="./profile.html">Return to Profile</a></button>
+  </footer>
+  <script src="recipenav.js"></script>
+</body>
+</html>
+
+
+
+
+
+<!-- <!DOCTYPE html>
 <html>
 <head>
   <title>Recipe Navigator</title>
@@ -28,4 +72,4 @@
     <button class="button"><a href="./profile.html">Return to Profile</a></button>
   </footer>
 </body>
-</html>
+</html> -->

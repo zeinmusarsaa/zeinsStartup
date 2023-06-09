@@ -8,6 +8,7 @@ const client = new MongoClient(url);
 const db = client.db('recipeDB');
 const DB = require('./database.js');
 const cookieParser = require('cookie-parser');
+const { peerProxy } = require('./peerProxy.js');
 
 
 
@@ -115,6 +116,7 @@ apiRouter.get('/user/:email', async (req, res) => {
   res.status(404).send({ msg: 'Unknown' });
 });
 
+// secureApiRouter verifies credentials for endpoints
 var secureApiRouter = express.Router();
 apiRouter.use(secureApiRouter);
 
@@ -211,10 +213,49 @@ app.delete('/api/recipes/:id', async (req, res) => {
   }
 });
 
+apiRouter.post('/posts/like', async (req, res) => {
+  const postId = req.body.postId;
+  try {
+    // Update the post in the database to increment the like count
+    const result = await db.collection('posts').updateOne({ _id: ObjectId(postId) }, { $inc: { likes: 1 } });
+    if (result.modifiedCount === 0) {
+      res.status(404).send({ error: 'Post not found' });
+    } else {
+      res.send({ message: 'Post liked successfully' });
+    }
+  } catch (err) {
+    console.error('Error updating post in MongoDB:', err);
+    res.status(500).send({ error: 'Internal Server Error' });
+  }
+});
+
+apiRouter.post('/posts/comment', async (req, res) => {
+  const postId = req.body.postId;
+  const comment = req.body.comment;
+  console.log("Post ID: " + postId);
+  try {
+    // Update the post in the database to add the comment
+    console.log("Post ID: " + postId);
+    const result = await db.collection('posts').updateOne({ _id: ObjectId(postId) }, { $push: { comments: comment } });
+    if (result.modifiedCount === 0) {
+      res.status(404).send({ error: 'Post not found' });
+    } else {
+      res.send({ message: 'Comment posted successfully' });
+    }
+  } catch (err) {
+    console.error('Error updating post in MongoDB:', err);
+    res.status(500).send({ error: 'Internal Server Error' });
+  }
+});
+
+
+
+// Default error handler
 app.use(function (err, req, res, next) {
   res.status(500).send({ type: err.name, message: err.message });
 });
 
+// Return the application's default page if the path is unknown
 app.use((_req, res) => {
   res.sendFile('index.html', { root: 'public' });
 });
@@ -228,12 +269,11 @@ function setAuthCookie(res, authToken) {
   });
 }
 
-
-
-
-app.listen(port, () => {
+const httpService = app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
+
+peerProxy(httpService);
 
 
 

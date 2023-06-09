@@ -1,108 +1,77 @@
-// //remove this one and then change any calls to the database to the one in the server
-// let database = {
-//     users: [],
-//     recipes: [
-       
-//     ],
-// }
+// Adjust the webSocket protocol to what is being used for HTTP
+const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
+const socket = new WebSocket(`${protocol}://${window.location.host}/ws`);
 
-// let tabContainer = document.getElementById('tabContainer');
-// let recipeContainer = document.getElementById('recipeContainer');
+// Display that we have opened the webSocket
+socket.onopen = (event) => {
+  appendMsg('system', 'websocket', 'connected');
+};
 
-// let filter = '';
+// Display messages we receive from our friends
+socket.onmessage = async (event) => {
+  const text = await event.data.text();
+  const chat = JSON.parse(text);
+  appendMsg('friend', chat.name, chat.msg);
+};
 
-// database.recipes.forEach(recipe => {
-//     if(!document.getElementById(`tab-${recipe.recipeName}`)){
-//         let tab = document.createElement('div');
-//         tab.id = `tab-${recipe.recipeName}`;
-//         tab.textContent = recipe.recipeName;
-//         tab.classList.add('tab');
-//         tab.onclick = function() {
-//             filter = recipe.recipeName;
-//             displayRecipes();
-//         };
-//         tabContainer.appendChild(tab);
-//     }
-// });
+// If the webSocket is closed then disable the interface
+socket.onclose = (event) => {
+  appendMsg('system', 'websocket', 'disconnected');
+  document.querySelector('#name-controls').disabled = true;
+  document.querySelector('#chat-controls').disabled = true;
+};
 
-// // Display the recipes
-// function displayRecipes() {
-//     // Clear the recipe container
-//     recipeContainer.innerHTML = '';
-  
-//     // Filter and display the recipes
-//     database.recipes.forEach(recipe => {
-//         if (filter == '' || recipe.recipeName == filter) {
-//             let recipeDiv = document.createElement('div');
-//             let recipeH3 = document.createElement('h3');
-//             let recipeP = document.createElement('p');
-
-//             recipeH3.textContent = recipe.recipeName;
-//             recipeP.textContent = `Ingredients: ${recipe.ingredients} - Instructions: ${recipe.instructions}`;
-
-//             recipeDiv.appendChild(recipeH3);
-//             recipeDiv.appendChild(recipeP);
-
-//             recipeContainer.appendChild(recipeDiv);
-//         }
-//     });
-// }
-
-// // Call the displayRecipes function to display all recipes initially
-// displayRecipes();
-
-
-// window.onload = function() {
-//     const recipeNames = Object.keys(database.recipes);
-//     const tabContainer = document.getElementById('tabContainer'); 
-//     recipeNames.forEach((recipeName) => {
-//         let tab = document.createElement('div');
-//         tab.textContent = recipeName;
-
-//         tab.addEventListener('click', function() {
-//             displayRecipes(recipeName);
-//         });
-
-//         tabContainer.appendChild(tab);
-//     });
-// }
-
-// function displayRecipes(recipeName) {
-//     const recipes = database.recipes[recipeName];
-//     const recipeContainer = document.getElementById('recipeContainer'); 
-
-//     recipeContainer.innerHTML = ''; // Clear the container
-
-//     recipes.forEach((recipe) => {
-//         let recipeDiv = document.createElement('div');
-//         let recipeH3 = document.createElement('h3');
-//         let recipeP = document.createElement('p');
-
-//         recipeH3.textContent = recipe.recipeName;
-//         recipeP.textContent = `Ingredients: ${recipe.ingredients} - Instructions: ${recipe.instructions}`;
-
-//         recipeDiv.appendChild(recipeH3);
-//         recipeDiv.appendChild(recipeP);
-//         recipeContainer.appendChild(recipeDiv);
-//     });
-// }
-
-function displayQuote(data) {
-    fetch('https://api.quotable.io/random')
-      .then((response) => response.json())
-      .then((data) => {
-        const containerEl = document.querySelector('#quote');
-  
-        const quoteEl = document.createElement('p');
-        quoteEl.classList.add('quote');
-        const authorEl = document.createElement('p');
-        authorEl.classList.add('author');
-  
-        quoteEl.textContent = data.content;
-        authorEl.textContent = data.author;
-  
-        containerEl.appendChild(quoteEl);
-        containerEl.appendChild(authorEl);
-      });
+// Send a message over the webSocket
+function sendMessage() {
+  const msgEl = document.querySelector('#new-msg');
+  const msg = msgEl.value;
+  if (!!msg) {
+    appendMsg('me', 'me', msg);
+    const name = document.querySelector('#my-name').value;
+    socket.send(`{"name":"${name}", "msg":"${msg}"}`);
+    msgEl.value = '';
   }
-  displayQuote();  
+}
+
+// Create one long list of messages
+function appendMsg(cls, from, msg) {
+  const chatText = document.querySelector('#chat-text');
+  chatText.innerHTML =
+    `<div><span class="${cls}">${from}</span>: ${msg}</div>` +
+    chatText.innerHTML;
+}
+
+// Send message on enter keystroke
+const input = document.querySelector('#new-msg');
+input.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') {
+    sendMessage();
+  }
+});
+
+// Disable chat if no name provided
+const chatControls = document.querySelector('#chat-controls');
+const myName = document.querySelector('#my-name');
+myName.addEventListener('keyup', (e) => {
+  chatControls.disabled = myName.value === '';
+});
+
+// function displayQuote(data) {
+//     fetch('https://api.quotable.io/random')
+//       .then((response) => response.json())
+//       .then((data) => {
+//         const containerEl = document.querySelector('#quote');
+  
+//         const quoteEl = document.createElement('p');
+//         quoteEl.classList.add('quote');
+//         const authorEl = document.createElement('p');
+//         authorEl.classList.add('author');
+  
+//         quoteEl.textContent = data.content;
+//         authorEl.textContent = data.author;
+  
+//         containerEl.appendChild(quoteEl);
+//         containerEl.appendChild(authorEl);
+//       });
+//   }
+//   displayQuote();  
