@@ -36,3 +36,5 @@ I implemented object classes with constructors and connect methodsI have made mu
 o added a third-party extension, the same one as the one in simon as I had to reset my entire code yesterday.I have made changes to the DB, adding code to the front, backend and adding API endpoints to each. My debugger does not work anymore, so I can't check the debugger for any mistakes. However, overall, I think my code meets the requirements
  
  I have implemented authentication for the login page.
+ 
+ I have changed a lot of my code. I went in and changed almost everything about my newsfeed, from CSS, HTML and Java. For my WS I added a like functionality, as well as the other chat websocket that we had as an example to my recipenavigation page as I don't know what im going to do with them.
