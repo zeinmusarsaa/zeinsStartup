@@ -1,20 +1,23 @@
 {
-  "name": "zeinsstartup",
-  "version": "1.0.0",
-  "description": "I have added only testing to the file",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.0",
+    "bootstrap": "^5.3.0",
     "cookie-parser": "^1.4.6",
     "express": "^4.18.2",
     "mongodb": "^5.6.0",
+    "react": "^18.2.0",
+    "react-bootstrap": "^2.7.4",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.12.1",
     "uuid": "^9.0.0",
     "ws": "^8.13.0"
+  },
+  "devDependencies": {
+    "vite": "^4.3.9"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   }
 }
