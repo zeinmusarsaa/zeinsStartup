@@ -14,7 +14,7 @@ const { peerProxy } = require('./peerProxy.js');
 const authCookieName = 'token';
 
 //service port
-const port = process.argv.length > 2 ? process.argv[2] : 8080;
+const port = process.argv.length > 2 ? process.argv[2] : 4000;
 
 // JSON body parsing using built-in middleware
 app.use(express.json());
@@ -258,7 +258,7 @@ app.use(function (err, req, res, next) {
 // Return the application's default page if the path is unknown
 // app.use(express.static(path.join(dirname, 'build'))); 
 app.use((_req, res) => {
-  res.sendFile('index.html', { root: '/' });
+  res.sendFile('index.html', { root: 'public' });
 });
 
 // setAuthCookie in the HTTP response

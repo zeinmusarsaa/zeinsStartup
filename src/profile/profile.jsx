@@ -274,11 +274,8 @@ export function Profile() {
   }
 
   function sendWebSocketMessage(message) {
-    const socket = new WebSocket('ws://localhost:4000/ws');
-    socket.addEventListener('open', () => {
       socket.send(JSON.stringify(message));
-      socket.close();
-    });
+
   }
 
   function configureWebSocket() {
