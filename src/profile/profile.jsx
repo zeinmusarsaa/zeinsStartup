@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './profile.css';
 
@@ -11,6 +11,68 @@ export function Profile() {
   const [likes, setLikes] = useState({});
   const [comments, setComments] = useState({});
   const navigate = useNavigate();
+  const socketRef = useRef();
+
+  function sendWebSocketMessage(message) {
+    if (socketRef.current && socketRef.current.readyState === WebSocket.OPEN) {
+      socketRef.current.send(JSON.stringify(message));
+    }
+  }
+
+  // function configureWebSocket() {
+  //   socketRef.current = new WebSocket('ws://localhost:4000/ws');
+
+  //   socketRef.current.onopen = () => {
+  //     console.log('WebSocket connected');
+  //   };
+
+  //   socketRef.current.onclose = () => {
+  //     console.log('WebSocket disconnected');
+  //   };
+
+    
+  // }
+
+  useEffect(() => {
+    const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
+    socketRef.current = new WebSocket(`${protocol}://${window.location.host}/ws`);
+
+    socketRef.current.onopen = (event) => {
+      console.log('WebSocket connected');
+    };
+
+    socketRef.current.onmessage = (event) => {
+      const message = JSON.parse(event.data);
+
+      if (message.action === 'like') {
+        const postId = message.postId;
+
+        const postElement = document.querySelector(`[data-post-id="${postId}"]`);
+        if (postElement) {
+          const likeCountElement = postElement.querySelector('.like-count');
+          const likeCount = parseInt(likeCountElement.textContent);
+          likeCountElement.textContent = likeCount + 1;
+        }
+      } else if (message.action === 'comment') {
+        const postId = message.postId;
+
+        const postElement = document.querySelector(`[data-post-id="${postId}"]`);
+        if (postElement) {
+          const commentCountElement = postElement.querySelector('.comment-count');
+          const commentCount = parseInt(commentCountElement.textContent);
+          commentCountElement.textContent = commentCount + 1;
+        }
+      }
+    };
+
+    socketRef.current.onclose = (event) => {
+      console.log('WebSocket disconnected');
+    };
+
+    return () => {
+      socketRef.current.close();
+    };
+  }, []);
 
   useEffect(() => {
     const userNameFromStorage = localStorage.getItem('userName');
@@ -24,6 +86,8 @@ export function Profile() {
       navigate('/');
     }
   }, [navigate]);
+
+ 
 
   async function handlePostRecipe(e) {
     e.preventDefault();
@@ -52,6 +116,7 @@ export function Profile() {
           ingredients: ingredients,
           instructions: instructions,
         };
+        //prev values to
         setRecipes((prevRecipes) => [newRecipe, ...prevRecipes]);
         setRecipeName('');
         setIngredients('');
@@ -273,49 +338,10 @@ export function Profile() {
     sendWebSocketMessage(message);
   }
 
-  function sendWebSocketMessage(message) {
-      socket.send(JSON.stringify(message));
 
-  }
 
-  function configureWebSocket() {
-    const socket = new WebSocket('ws://localhost:4000/ws');
-
-    socket.onopen = () => {
-      console.log('WebSocket connected');
-    };
-
-    socket.onclose = () => {
-      console.log('WebSocket disconnected');
-    };
-
-    socket.onmessage = (event) => {
-      const message = JSON.parse(event.data);
-
-      if (message.action === 'like') {
-        const postId = message.postId;
-
-        const postElement = document.querySelector(`[data-post-id="${postId}"]`);
-        if (postElement) {
-          const likeCountElement = postElement.querySelector('.like-count');
-          const likeCount = parseInt(likeCountElement.textContent);
-          likeCountElement.textContent = likeCount + 1;
-        }
-      } else if (message.action === 'comment') {
-        const postId = message.postId;
-
-        const postElement = document.querySelector(`[data-post-id="${postId}"]`);
-        if (postElement) {
-          const commentCountElement = postElement.querySelector('.comment-count');
-          const commentCount = parseInt(commentCountElement.textContent);
-          commentCountElement.textContent = commentCount + 1;
-        }
-      }
-    };
-  }
-
-  // Call the function
-  configureWebSocket();
+  // // Call the function
+  // configureWebSocket();
 
   return (
     <main>
@@ -393,39 +419,6 @@ export function Profile() {
 }
 
 export default Profile;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
