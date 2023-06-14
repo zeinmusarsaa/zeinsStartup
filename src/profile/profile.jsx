@@ -341,7 +341,7 @@ export function Profile() {
 
 
   // // Call the function
-  // configureWebSocket();
+  configureWebSocket();
 
   return (
     <main>
