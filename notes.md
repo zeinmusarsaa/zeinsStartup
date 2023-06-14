@@ -38,3 +38,6 @@ o added a third-party extension, the same one as the one in simon as I had to re
  I have implemented authentication for the login page.
  
  I have changed a lot of my code. I went in and changed almost everything about my newsfeed, from CSS, HTML and Java. For my WS I added a like functionality, as well as the other chat websocket that we had as an example to my recipenavigation page as I don't know what im going to do with them.
+
+ Today I worked on my react. I converted all my files, all my code to react JS. I also had an issue with my fi
+les and with my websocket but I was able to finish those and work on the problems.
