@@ -274,7 +274,7 @@ export function Profile() {
   }
 
   function sendWebSocketMessage(message) {
-    const socket = new WebSocket('ws://localhost:8080/ws');
+    const socket = new WebSocket('ws://localhost:4000/ws');
     socket.addEventListener('open', () => {
       socket.send(JSON.stringify(message));
       socket.close();
@@ -282,7 +282,7 @@ export function Profile() {
   }
 
   function configureWebSocket() {
-    const socket = new WebSocket('ws://localhost:8080/ws');
+    const socket = new WebSocket('ws://localhost:4000/ws');
 
     socket.onopen = () => {
       console.log('WebSocket connected');
@@ -396,6 +396,39 @@ export function Profile() {
 }
 
 export default Profile;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

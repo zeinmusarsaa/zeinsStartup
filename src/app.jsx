@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
-import Profile from './profile/profile'
-import RecipeNavigator from './recipenav/recipenav';
+import { Profile } from './profile/profile'
+import { RecipeNavigator } from './recipenav/recipenav';
 import { AuthState } from './login/authState';
 import Login from './login/login';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -29,14 +29,14 @@ function App() {
             </li>
             {authState === AuthState.Authenticated && (
               <li className='nav-item'>
-                <NavLink className='nav-link' to='recipeNav'>
-                  Recipe Navigator
+                <NavLink className='nav-link' to='profile'>
+                  Profile
                 </NavLink>
               </li>
             )}
             <li className='nav-item'>
-              <NavLink className='nav-link' to='profile'>
-                Profile
+              <NavLink className='nav-link' to='recipeNav'>
+                Recipe Navigator
               </NavLink>
             </li>
           </menu>
@@ -59,7 +59,7 @@ function App() {
           exact
         />
         <Route path='/profile' element={<Profile userName={userName} />} />
-        <Route path='/recipenav' element={<RecipeNavigator />} />
+        <Route path='/recipeNav' element={<RecipeNavigator />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
 
